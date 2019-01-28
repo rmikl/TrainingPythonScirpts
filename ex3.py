@@ -22,10 +22,6 @@ with open('wspolrzedneTR.txt') as file:
         circ = AB + AC + BC
         if circ > length:
             length = circ
-
     print(round(length, 2))
-
-
-
 
 
