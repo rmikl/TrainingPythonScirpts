@@ -15,8 +15,6 @@ with open('okregi.txt') as file:
         newEl = [el['x'], el['y'], el['r']]
         abstractCircleList.append(newEl)
     count = 0
-
-
     abstractCircleList_set = set(tuple(e) for e in abstractCircleList)
     abstractCircleList = [list(x) for x in abstractCircleList_set]
 
@@ -57,4 +55,8 @@ with open('okregi.txt') as file:
             abstractCircleList[abstractCircleList.index(el)] = "null"
             abstractCircleList[abstractCircleList.index(el1)] = "null"
 
-    print(count)
+print(count)
+
+f = open('wyniki.txt', 'a')
+f.write('\n' + str(count))
+f.close()
