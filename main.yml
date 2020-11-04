@@ -25,12 +25,11 @@ stages:
           /usr/bin/docker build -t robertm131/trainingpythonscripts .
           docker images
           "
-
-- stage: Docker
-  displayName: Docker Registry push
-  jobs:
-  - job:
-    displayName: Send to docker Registry
+- stage: Push
+  displayName: Push image
+  jobs:  
+  - job: Push
+    displayName: Push
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -40,10 +39,9 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          docker images
           docker login --username=$(DOCKER_REG_LOGIN) --password=$(DOCKER_REG_PASSWORD)
           /usr/bin/docker push robertm131/trainingpythonscripts 
-          " 
+          "
 
 - stage: Run
   displayName: Run script from repository
