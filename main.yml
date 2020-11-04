@@ -28,6 +28,21 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
+  - job:
+    displayName: Send to docker Registry
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: 'docker images'
+      
+  - job:
+    displayName: Run script
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
     - task: PythonScript@0
       inputs:
         scriptSource: 'filePath'
