@@ -46,7 +46,7 @@ stages:
           # Write your commands here
           /usr/bin/docker images 
 
-- stage: Run script
+- stage: Run
   displayName: Run script from repository
   jobs:   
   - job:
