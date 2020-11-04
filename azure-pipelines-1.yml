@@ -1,4 +1,5 @@
 # Docker
+
 # Build a Docker image 
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -27,8 +28,10 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
-    - task: PythonScript@0
+    - task: Bash@3
       inputs:
-        scriptSource: 'filePath'
-        scriptPath: '~/TrainingPythonScirpts/w3resource_python-exercises/python_basic_1/ex1.py'
-        
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          ls -la 
+          pwd
