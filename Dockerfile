@@ -9,6 +9,5 @@ RUN apk add git
 
 RUN git clone https://github.com/robertmpl/TrainingPythonScirpts.git
 RUN pwd
-RUN ls -la
 RUN cd  TrainingPythonScirpts
-RUN python --version
+RUN ls -la
