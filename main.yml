@@ -28,7 +28,7 @@ stages:
           # Write your commands here
           bash -c "
           cd w3resource_python-exercises
-          docker build robertm131/trainingpythonscripts
+          docker build -t robertm131/trainingpythonscripts .
           docker images"
 
 - stage: Docker
