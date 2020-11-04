@@ -43,7 +43,10 @@ stages:
         targetType: 'inline'
         script: |
           # Write your commands here
-          /usr/bin/docker images 
+          bash -c "
+          docker login -u $(DOCKER_REG_LOGIN) -p $(DOCKER_REG_PWD) $(DOCKER_REG_URL)
+          /usr/bin/docker push robertm131/trainingpythonscripts 
+          " 
 
 - stage: Run
   displayName: Run script from repository
