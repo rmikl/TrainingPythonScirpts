@@ -22,10 +22,14 @@ stages:
         script: |
           # Write your commands here
           bash -c "
+          echo '---------------------------------HERE START'
           /usr/bin/docker build -t robertm131/trainingpythonscripts/ .
+          echo '---------------------------------HERE START'
           docker images
+          echo '---------------------------------HERE START'
           docker login --username=$(DOCKER_REG_LOGIN) --password=$(DOCKER_REG_PASSWORD)
           /usr/bin/docker push robertm131/trainingpythonscripts/
+          echo '----------------------------------HERE END'
           "
 - stage: Run
   displayName: Run script from repository
