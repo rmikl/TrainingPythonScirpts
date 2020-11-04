@@ -27,7 +27,9 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          pwd"
+          pwd
+          ls -la
+          whereis docker"
 
 - stage: Docker
   displayName: Docker Registry push
