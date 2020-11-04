@@ -21,14 +21,13 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
+    - task: Bash@3
       inputs:
-        command: build
-        dockerfile: '**/Dockerfile'
-        tags: |
-          $(tag)
-
+        targetType: 'inline'
+        script: |
+        # Write your commands here
+        /usr/bin/docker build  -t robertm131/trainingpythonscripts
+        
 - stage: Docker Registry push
   displayName: Docker Registry push
   jobs:
@@ -43,7 +42,7 @@ stages:
         script: |
           # Write your commands here
           /usr/bin/docker images 
-           
+
 - stage: Run script
   displayName: 
   jobs:   
