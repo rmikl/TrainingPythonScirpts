@@ -25,10 +25,13 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-        # Write your commands here
-        /usr/bin/docker build  -t robertm131/trainingpythonscripts
-        
-- stage: Docker Registry push
+          # Write your commands here
+          bash -c "
+          cd w3resource_python-exercises
+          docker build -t robertm131/trainingpythonscripts
+          docker images"
+
+- stage: Docker
   displayName: Docker Registry push
   jobs:
   - job:
