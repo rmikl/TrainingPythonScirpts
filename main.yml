@@ -44,7 +44,7 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          docker login -u $(DOCKER_REG_LOGIN) -p $(DOCKER_REG_PASSWORD) $(DOCKER_REG_URL)
+          docker login --username=$(DOCKER_REG_LOGIN) --password=$(DOCKER_REG_PASSWORD)
           /usr/bin/docker push robertm131/trainingpythonscripts 
           " 
 
