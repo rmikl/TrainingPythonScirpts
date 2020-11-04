@@ -28,6 +28,10 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
+
+- stage: Docker Registry push
+  displayName: Docker Registry push
+  jobs:
   - job:
     displayName: Send to docker Registry
     pool:
@@ -38,7 +42,11 @@ stages:
         targetType: 'inline'
         script: |
           # Write your commands here
-          /usr/bin/docker images      
+          /usr/bin/docker images 
+           
+- stage: Run script
+  displayName: 
+  jobs:   
   - job:
     displayName: Run script
     pool:
