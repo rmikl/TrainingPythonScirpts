@@ -9,7 +9,7 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: Build and push image
   jobs:  
   - job: Build
     displayName: Build
@@ -23,7 +23,7 @@ stages:
           # Write your commands here
           bash -c "
           echo 'DOCKER BUILD'
-          /usr/bin/docker build -t robertm131/trainingpythonscripts .
+          docker build -t robertm131/trainingpythonscripts .
           echo 'DOCKER IMAGES'
           docker images
           echo 'DOCKER PUSH'
@@ -31,6 +31,7 @@ stages:
           /usr/bin/docker push robertm131/trainingpythonscripts
           echo '----------------------------------HERE END'
           "
+
 - stage: Run
   displayName: Run script from repository
   jobs:   
@@ -39,7 +40,21 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: PythonScript@0
+    - task: Bash@3
       inputs:
-        scriptSource: 'filePath'
-        scriptPath: 'w3resource_python-exercises/python_basic_1/ex1.py'
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          bash -c "
+          docker login --username=$(DOCKER_REG_LOGIN) --password=$(DOCKER_REG_PASSWORD)
+          docker pull robertm131/trainingpythonscripts
+          "
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          bash -c "
+          docker run -ti robertm131/trainingpythonscripts bash -c "pwd; ls -la"
+          "
+
