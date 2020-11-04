@@ -38,7 +38,7 @@ stages:
         targetType: 'inline'
         script: |
           # Write your commands here
-          whereis docker      
+          /usr/bin/docker images      
   - job:
     displayName: Run script
     pool:
