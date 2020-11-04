@@ -23,7 +23,7 @@ stages:
           # Write your commands here
           bash -c "
           echo 'DOCKER BUILD'
-          /usr/bin/docker build -t robertm131/trainingpythonscripts/ .
+          /usr/bin/docker build -t robertm131/trainingpythonscripts .
           echo 'DOCKER IMAGES'
           docker images
           echo 'DOCKER PUSH'
