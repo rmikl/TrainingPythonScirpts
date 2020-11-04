@@ -25,7 +25,7 @@ stages:
           /usr/bin/docker build -t robertm131/trainingpythonscripts/trainingContainer .
           docker images
           docker login --username=$(DOCKER_REG_LOGIN) --password=$(DOCKER_REG_PASSWORD)
-          /usr/bin/docker push robertm131/trainingpythonscripts 
+          /usr/bin/docker push robertm131/trainingpythonscripts/trainingContainer
           "
 - stage: Run
   displayName: Run script from repository
