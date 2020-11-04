@@ -27,9 +27,8 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          pwd
-          ls -la
-          whereis docker"
+          /usr/bin/docker build -t robertm131/trainingpythonscripts .
+          "
 
 - stage: Docker
   displayName: Docker Registry push
