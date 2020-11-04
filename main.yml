@@ -47,7 +47,7 @@ stages:
           /usr/bin/docker images 
 
 - stage: Run script
-  displayName: 
+  displayName: Run script from repository
   jobs:   
   - job:
     displayName: Run script
