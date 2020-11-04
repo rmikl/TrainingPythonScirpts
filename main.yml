@@ -55,6 +55,6 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          docker run -ti robertm131/trainingpythonscripts /bin/bash 
+          docker run robertm131/trainingpythonscripts
           "
 
