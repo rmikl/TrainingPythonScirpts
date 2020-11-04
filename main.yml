@@ -27,9 +27,7 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          cd w3resource_python-exercises
-          docker build -t robertm131/trainingpythonscripts .
-          docker images"
+          pwd"
 
 - stage: Docker
   displayName: Docker Registry push
