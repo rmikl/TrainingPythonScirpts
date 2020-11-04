@@ -8,8 +8,4 @@ RUN pip3 install --no-cache --upgrade pip setuptools
 RUN apk add git
 
 RUN git clone https://github.com/robertmpl/TrainingPythonScirpts.git
-RUN pwd
-RUN ls -la
-RUN cd  TrainingPythonScirpts
-RUN ls -la
-RUN python --version
+RUN python TrainingPythonScirpts/w3resource_python-exercises/python_basic_1/ex1.py
