@@ -55,6 +55,6 @@ stages:
         script: |
           # Write your commands here
           bash -c "
-          docker run robertm131/trainingpythonscripts
+          docker run robertm131/trainingpythonscripts:latest /bin/sh -c "python TrainingPythonScirpts/w3resource_python-exercises/python_basic_1/ex1.py" 
           "
 
